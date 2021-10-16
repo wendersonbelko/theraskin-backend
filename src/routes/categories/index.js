@@ -1,8 +1,8 @@
 const { Router } = require('express');
-
+const {categories} = require('../../controllers');
 const categoriesRouter = Router();
 
-categoriesRouter.get("/",(req,res,nxt)=>{ res.json({ yee: "haa"}) });
+categoriesRouter.get("/",categories.get);
 
 module.exports = {
     categoriesRouter
