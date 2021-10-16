@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require('cors');
-const { categoriesRouter } = require('./routes');
 
 require('dotenv').config();
 
@@ -11,7 +10,10 @@ server.use(express.json());
 server.use(cors());
 
 // routes
+const { categoriesRouter, productsRouter } = require('./routes');
+
 server.use('/categories', categoriesRouter);
+server.use('/products', productsRouter);
 server.all('*', (_req, res) => res.status(404).json({ message: 'page not found' }));
 
 server.listen(PORT || 3000, () => {
