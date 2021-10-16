@@ -1,5 +1,6 @@
 const {metadata} = require("./metadata");
+const categories = require('./categories');
 
 module.exports = {
-    metadata
+    metadata, categories
 }
