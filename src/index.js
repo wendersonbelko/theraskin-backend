@@ -1,13 +1,19 @@
 const express = require("express");
-const controller = require('./controllers');
-const dotenv = require('dotenv').config();
+const cors = require('cors');
+const { categoriesRouter } = require('./routes');
+
+require('dotenv').config();
 
 const {PORT} = process.env;
-const app = express();
-app.use(express.json());
 
-app.get('/', controller.metadata);
+const server = express();
+server.use(express.json());
+server.use(cors());
 
-app.listen(PORT || 3000, () => {
+// routes
+server.use('/categories', categoriesRouter);
+server.all('*', (_req, res) => res.status(404).json({ message: 'page not found' }));
+
+server.listen(PORT || 3000, () => {
     console.log(`Servidor rodando na porta ${PORT || 3000}`);
 });
