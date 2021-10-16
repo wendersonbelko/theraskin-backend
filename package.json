@@ -1,0 +1,27 @@
+{
+  "name": "hackathon-theraskin",
+  "version": "1.0.0",
+  "description": "hackathon theraskin",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wendersonbelko/theraskin-backend.git"
+  },
+  "author": "x-force",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wendersonbelko/theraskin-backend/issues"
+  },
+  "homepage": "https://github.com/wendersonbelko/theraskin-backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.2"
+  }
+}
