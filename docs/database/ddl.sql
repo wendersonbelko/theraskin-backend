@@ -1,9 +1,9 @@
 CREATE TABLE users(  
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255),
-    picture VARCHAR(255),
-    uf CHAR(2),
-    city VARCHAR(255),
+    name VARCHAR(255) NOT NULL,
+    picture VARCHAR(255) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    city VARCHAR(255) NOT NULL,
     street VARCHAR(255),
     district VARCHAR(255),
     zip_code CHAR(8)
@@ -13,7 +13,7 @@ CREATE TABLE user_credentials(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    user_id int NOT NULL,
+    user_id INT NOT NULL,
     FOREIGN KEY(user_id) REFERENCES users(id) 
 )default charset utf8;
 
@@ -27,7 +27,7 @@ CREATE TABLE admin_credentials(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    admin_id int NOT NULL,
+    admin_id INT NOT NULL,
     FOREIGN KEY(admin_id) REFERENCES admins(id) 
 )default charset utf8;
 
@@ -44,7 +44,7 @@ CREATE TABLE products(
     composition TEXT NOT NULL,
     skin_type INT NOT NULL,
     price DECIMAL(2) NOT NULL,
-    category_id int NOT NULL,
+    category_id INT NOT NULL,
     FOREIGN KEY(category_id) REFERENCES categories(id) 
 )default charset utf8;
 
@@ -53,8 +53,8 @@ CREATE TABLE drugstores(
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     image VARCHAR(255) NOT NULL,
-    is_online BIT NOT NULL,
-    is_physical BIT NOT NULL,
+    is_online BOOLEAN NOT NULL,
+    is_physical BOOLEAN NOT NULL,
     uf CHAR(2),
     city VARCHAR(255),
     street VARCHAR(255),
@@ -66,11 +66,11 @@ CREATE TABLE drugstores(
 
 CREATE TABLE drugstores_inventory(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    drugstore_id int NOT NULL,
-    products_id int NOT NULL,
+    drugstore_id INT NOT NULL,
+    products_id INT NOT NULL,
     FOREIGN KEY(products_id) REFERENCES products(id),
     FOREIGN KEY(drugstore_id) REFERENCES drugstores(id),
-    available BIT NOT NULL
+    available BOOLEAN NOT NULL
 )default charset utf8;
 
 CREATE VIEW inventory_view
@@ -100,3 +100,7 @@ AS
     LEFT JOIN categories as `c` ON p.category_id= c.id
 );
 
+CREATE TABLE tes(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    drugstore_id BOOLEAN NOT NULL
+);
