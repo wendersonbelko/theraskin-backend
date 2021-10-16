@@ -10,10 +10,11 @@ server.use(express.json());
 server.use(cors());
 
 // routes
-const { categoriesRouter, productsRouter } = require('./routes');
+const { categoriesRouter, productsRouter , drugstoreRouter } = require('./routes');
 
 server.use('/categories', categoriesRouter);
 server.use('/products', productsRouter);
+server.use('/drugstores', drugstoreRouter);
 server.all('*', (_req, res) => res.status(404).json({ message: 'page not found' }));
 
 server.listen(PORT || 3000, () => {

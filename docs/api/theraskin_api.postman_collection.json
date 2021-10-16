@@ -62,7 +62,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products?categories=1,2,3",
+							"raw": "{{baseUrl}}/products?categories=1,2",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -72,7 +72,7 @@
 							"query": [
 								{
 									"key": "categories",
-									"value": "1,2,3"
+									"value": "1,2"
 								}
 							]
 						}
@@ -83,7 +83,25 @@
 		},
 		{
 			"name": "Drugstores",
-			"item": []
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/drugstores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"drugstores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Metadata",
